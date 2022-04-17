@@ -1,0 +1,17 @@
+<%- include("partials/header"); -%>
+<div class="ldiv">
+    <h1>Sign Up</h1>
+</div>
+<form action="/signup" method="post">
+    <div class="loginDiv">
+        <label for="email">Email:</label>
+        <input type="email" name="username" autocomplete="off">
+        <label for="password">Set New Password:</label>
+        <input type="password" name="password">
+        <div class="loginBtn">
+            <button name="button"><i class="fa-solid fa-circle-arrow-right"></i></button>
+        </div>
+    </div>
+</form>
+
+<%- include("partials/footer"); -%>

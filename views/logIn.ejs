@@ -1,0 +1,18 @@
+<%- include("partials/header"); -%>
+
+<div class="ldiv">
+    <h1>Log In</h1>
+</div>
+<form action="/login" method="post">
+    <div class="loginDiv">
+        <label for="email">Email Address:</label>
+        <input type="email" name="username" autocomplete="off">
+        <label for="password">Password:</label>
+        <input type="password" name="password">
+        <div class="loginBtn">
+            <button type="submit" name="loginBtn"><i class="fa-solid fa-circle-arrow-right"></i></button>
+        </div>
+    </div>
+</form>
+
+<%- include("partials/footer"); -%>

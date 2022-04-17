@@ -1,0 +1,26 @@
+<%- include("partials/header"); -%>
+
+<section id="postsection">
+    <h1><%=title%></h1>
+    <p><%=content%></p>
+    <div class="votes">
+        <div class="upvote">
+            <p><i class="fa-solid fa-thumbs-up"></i></p>
+        </div>
+        <div class="downvote">
+            <p><i class="fa-solid fa-thumbs-down"></i></p>
+        </div>
+        <form action="/posting" method="post">
+            <div class="reply">
+                <textarea name="reply" id="reply" cols="100" rows="3"></textarea>
+            </div>
+            <div class="replybtn">
+                <button class="replyb" type="submit">REPLY <i class="fa-regular fa-hand-point-left"></i></button>
+            </div>
+        </form>
+        <p></p>
+
+    </div>
+</section>
+
+<%- include("partials/footer"); -%>

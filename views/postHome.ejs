@@ -1,0 +1,20 @@
+<%- include("partials/header"); -%>
+
+<section id="postsection">
+        <h1><%= question %></h1>
+        <p><%= startingInfo %></p>
+
+    <% posts.forEach(function (p) { %>
+        <h1> <%= p.title %> </h1>
+        <p>
+            <%= p.content.substring(0, 100) + " ..." %>
+            <a href="/posts/<%= p._id %>">Read More</a>
+        </p>
+    <%  }) %>
+    <div class="askbutton">
+        <a href="/askQuestion" class="clickme">ASK A QUESTION?</a>
+    </div>
+</section>
+
+
+<%- include("partials/footer"); -%>
