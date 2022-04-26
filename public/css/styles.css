@@ -378,3 +378,29 @@ ul {
     gap: 25px;
 }
 
+.downvote button, .upvote button {
+    cursor: pointer;
+}
+
+.downvote button:hover, .upvote button:hover, .downvote button:focus, .upvote button:focus {
+    color: #A4EBF3;
+}
+
+.formVote {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.replies {
+    margin-top: 25px;
+}
+
+.replies h1 {
+    text-decoration: #A4EBF3 underline;
+}
+
+.replies ol {
+    margin-top: 16px;
+    font-family: 'Merriweather', serif
+}

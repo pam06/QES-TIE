@@ -4,12 +4,15 @@
     <h1><%=title%></h1>
     <p><%=content%></p>
     <div class="votes">
+<!--    <form class ="formVote" action="" method="post">-->
         <div class="upvote">
-            <p><i class="fa-solid fa-thumbs-up"></i></p>
+            <button class="l" title="Was it helpful?"><i class="fa-solid fa-thumbs-up"></i></button>
         </div>
         <div class="downvote">
-            <p><i class="fa-solid fa-thumbs-down"></i></p>
+            <button class="l" title="Was it not helpful?"><i class="fa-solid fa-thumbs-down"></i></button>
         </div>
+<!--    </form>-->
+
         <form action="/posting" method="post">
             <div class="reply">
                 <textarea name="reply" id="reply" cols="100" rows="3"></textarea>
@@ -18,8 +21,13 @@
                 <button class="replyb" type="submit">REPLY <i class="fa-regular fa-hand-point-left"></i></button>
             </div>
         </form>
-        <p></p>
+    </div>
 
+    <div class="replies">
+        <h1>REPLIES/ANSWERS</h1>
+        <ul>
+            <li><%=reply%></li>
+        </ul>
     </div>
 </section>
 

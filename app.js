@@ -33,6 +33,16 @@ const postSchema = {
 const userSchema = new mongoose.Schema({
    email: String,
    password: String
+   // like: [likeSchema]
+});
+
+const likeSchema = new mongoose.Schema({
+   likes: Number
+});
+
+const replySchema = new mongoose.Schema({
+   postSchema_id: String,
+   rep: String
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -40,6 +50,8 @@ userSchema.plugin(findOrCreate);
 
 const Post = mongoose.model("Post", postSchema);
 const User = mongoose.model("User", userSchema);
+const Like = mongoose.model("Like", likeSchema);
+const Reply = mongoose.model("Reply", replySchema)
 
 passport.use(User.createStrategy());
 
@@ -105,15 +117,34 @@ app.post("/askQuestion", function (req, res) {
    });
 });
 
+app.post("/like", function(req, res) {
+   const like = new Like({
+
+   });
+});
+
+app.post("/posting", function (req, res) {
+   const reply = new Reply({
+      rep: req.body.reply
+   });
+   reply.save(function(err) {
+      if (!err) {
+         res.redirect("post");
+      }
+   });
+});
+
 app.get("/posts/:postId", function (req, res) {
    const requestedId = req.params.postId;
    Post.findOne({_id: requestedId}, function(err, post){
       res.render("post", {
          title: post.title,
-         content: post.content
+         content: post.content,
+         reply: post.reply
       });
    });
 });
+
 
 app.get("/logout", function(req, res){
    req.logout();
@@ -143,6 +174,7 @@ app.post("/login", function(req, res){
    req.login(user, function(err){
       if (err) {
          console.log(err);
+         res.redirect("/signup");
       } else {
          passport.authenticate("local")(req, res, function(){
             res.redirect("/postHome");
